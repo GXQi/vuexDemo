@@ -1,7 +1,37 @@
 <template>
   <div class="list">
     <div class="header">
-        <h1>列表</h1>
+      <h1>列表</h1>
+    </div>
+    <div class="main-wrapper">
+      <div class="item border-bottom" v-for="item in infoList" :key="item.id">
+        <div class="item-img">
+          <img :src="item.imgUrl" alt="商品图片">
+        </div>
+        <div class="item-info">
+          <div class="item-name">
+            <p class="name">{{ item.name }}</p>
+          </div>
+          <div class="item-hint">
+            <p class="hint">{{ item.hint }}</p>
+          </div>
+          <div class="item-price">
+            <p class="price">￥<span>{{ item.price }}</span></p>
+          </div>
+          <div class="item-num">
+            <span
+              class="iconfont"
+              v-show="item.num != 0"
+              @click="item.num--"
+            >&#xe628;</span>
+            <span class="num" v-show="item.num != 0">{{ item.num }}</span>
+            <span
+              class="iconfont"
+              @click="item.num++"
+            >&#xe612;</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -40,13 +70,58 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus">
-.list
-  .header
-    padding: 10px 0
-    background: #26a2ff
-    font-size: 20px
-    color: #FFF
-    h1
-      text-align: center
-      font-weight: 600
-</style>
+  .border-bottom
+    &:before
+      border-color: #26a2ff
+  .list
+    overflow: hidden
+    .item
+      position: relative
+      width: 100%
+      display: flex
+      padding: .2rem 0 .2rem .5rem
+      border-size: border-box
+      .item-img
+        width: 1.5rem
+        overflow: hidden
+        img
+          display: block
+          width: 100%
+      .item-info
+        flex: 1
+        padding-left: .3rem
+        .item-name
+          padding-bottom: .1rem
+          .name
+            color: #07111b
+            font-size: .2.5rem
+            font-weight: 700
+            line-height: .4rem
+        .item-hint
+          padding-bottom: .2rem
+          .hint
+            color: #93999f
+            line-height: .4rem
+        .item-price
+          .price
+            color: #f01414
+            line-height: .4rem
+            span
+              font-size: .3rem
+              font-weight: 600
+        .item-add
+          position: absolute
+          bottom: .25rem
+          right: 1rem
+          height: .4rem
+          background: #26a2ff
+          border-radius: 10rem
+          padding: 0 .2rem
+          .add
+            color: #93999f
+            display: inline-block
+            vertical-align: top
+            text-align: center
+            color: #FFF
+            line-height: .4rem
+</style>s
