@@ -7,11 +7,13 @@
           <i class="iconfont">&#xe655;</i>列表
         </div>
       </router-link>
-      <router-link to="/cart" class="router-menu">
-        <div class="footer-item">
-          <i class="iconfont">&#xe63f;</i>购物车
-        </div>
-      </router-link>
+      <keep-alive>
+        <router-link to="/cart" class="router-menu">
+          <div class="footer-item">
+            <i class="iconfont">&#xe63f;</i>购物车
+          </div>
+        </router-link>
+      </keep-alive>
     </div>
   </div>
 </template>
