@@ -39,8 +39,8 @@ export default {
   data () {
     return {
       infoList: [],
-      startX : 0,
-      endX : 0
+      startX: 0,
+      endX: 0
     }
   },
   methods: {
@@ -51,11 +51,11 @@ export default {
       let parentElement = e.currentTarget.parentElement
       this.endX = e.changedTouches[0].clientX
       console.log(parentElement.dataset.type)
-      if (parentElement.dataset.type == 0 && this.startX - this.endX > 30) {
+      if (parentElement.dataset.type === 0 && this.startX - this.endX > 30) {
         this.restSlide()
         parentElement.dataset.type = 1
       }
-      if (parentElement.dataset.type == 1 && this.startX - this.endX < -30) {
+      if (parentElement.dataset.type === 1 && this.startX - this.endX < -30) {
         console.log('111')
         this.restSlide()
         parentElement.dataset.type = 0

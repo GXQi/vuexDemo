@@ -18,17 +18,11 @@
           <div class="item-price">
             <p class="price">￥<span>{{ item.price }}</span></p>
           </div>
-          <div class="item-num">
-            <span
-              class="iconfont"
-              v-show="item.num != 0"
-              @click="item.num--"
-            >&#xe628;</span>
-            <span class="num" v-show="item.num != 0">{{ item.num }}</span>
-            <span
-              class="iconfont"
-              @click="item.num++"
-            >&#xe612;</span>
+          <div class="item-add">
+            <p class="add">
+              <span class="iconfont">&#xe609;</span>
+              加入购物车
+            </p>
           </div>
         </div>
       </div>
