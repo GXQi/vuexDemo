@@ -7,7 +7,7 @@
       <div class="item-empty" v-if="arr.length == 0">
         购物车为空
       </div>
-      <div  class="item border-bottom" v-for="(item, index) in arr" v-else>
+      <div  class="item border-bottom" v-for="(item, index) in arr" :key="item.id" v-else>
         <div class="item-cartInfo" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" :style="deleteSlider">
           <div class="item-img">
             <img :src="item.imgUrl" alt="商品图片">
@@ -69,35 +69,35 @@ export default {
     ...mapActions(['deleteGoods', 'addNum', 'reduceNum']),
     touchStart (ev) {
       ev = ev || event
-      if (ev.touches.length == 1) {
+      if (ev.touches.length === 1) {
         this.startX = ev.touches[0].clientX
       }
     },
     touchEnd (ev) {
       ev = ev || event
       let wd = this.$refs.remove[0].offsetWidth
-      if (ev.changedTouches.length == 1) {
+      if (ev.changedTouches.length === 1) {
         this.endX = ev.changedTouches[0].clientX
         this.disX = this.startX - this.endX
-        if ((this.disX * 5) < (wd /2)) {
-          this.deleteSlider = "transform:translateX(0px)"
+        if ((this.disX * 5) < (wd / 2)) {
+          this.deleteSlider = 'transform:translateX(0px)'
         } else {
-          this.deleteSlider = "transform:translateX(-" + wd + "px)"
+          this.deleteSlider = 'transform:translateX(-' + wd + 'px)'
         }
       }
     },
     touchMove (ev) {
       ev = ev || event
       let wd = this.$refs.remove[0].offsetWidth
-      if (ev.touches.length == 1) {
+      if (ev.touches.length === 1) {
         this.moveX = ev.touches[0].clientX
-        this.disX = this.startX- this.moveX
-        if (this.disX < 0 || this.disX == 0) {
-          this.deleteSlider = "transform:translateX(0px)"
+        this.disX = this.startX - this.moveX
+        if (this.disX < 0 || this.disX === 0) {
+          this.deleteSlider = 'transform:translateX(0px)'
         } else if (this.disX > 0) {
-          this.deleteSlider = "transform:translateX(-" + this.disX*5 + "px)"
-          if (this.disX*5 >= wd) {
-            this.deleteSlider = "transform:translateX(-" + wd + "px)"
+          this.deleteSlider = 'transform:translateX(-' + this.disX * 5 + 'px)'
+          if (this.disX * 5 >= wd) {
+            this.deleteSlider = 'transform:translateX(-' + wd + 'px)'
           }
         }
       }

@@ -1,9 +1,7 @@
-import state from './states'
-
 const mutation = {
   addGoods (state, info) {
     let isOwn = state.arr.some(item => {
-      if (item.id == info.id) {
+      if (item.id === info.id) {
         item.num++
         return true
       } else {
@@ -21,7 +19,7 @@ const mutation = {
     state.arr[index].num++
   },
   reduceNum (state, index) {
-    if (state.arr[index].num == 1) {
+    if (state.arr[index].num === 1) {
       state.arr.splice(index, 1)
     } else {
       state.arr[index].num--

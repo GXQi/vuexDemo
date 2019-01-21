@@ -1,5 +1,3 @@
-import state from './states'
-
 const getter = {
   totalPrice (state) {
     let money = 0
@@ -9,11 +7,11 @@ const getter = {
     return money
   },
   totalNum (state) {
-      let num = 0
-      for (let i = 0; i < state.arr.length; i++) {
-        num += state.arr[i].num
-      }
-      return num
+    let num = 0
+    for (let i = 0; i < state.arr.length; i++) {
+      num += state.arr[i].num
+    }
+    return num
   }
 }
 
