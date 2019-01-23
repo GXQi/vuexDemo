@@ -8,7 +8,7 @@
         购物车为空
       </div>
       <div  class="item border-bottom" v-for="(item, index) in arr" :key="item.id" v-else>
-        <div class="item-cartInfo" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" :style="deleteSlider">
+        <div class="item-cartInfo">
           <div class="item-img">
             <img :src="item.imgUrl" alt="商品图片">
           </div>
@@ -132,7 +132,6 @@ export default {
           display: flex
           position: relative
           background: #FFF
-          z-index: 1
           .item-img
             width: 1.5rem
             overflow: hidden
@@ -178,17 +177,17 @@ export default {
                 padding-top: .07rem
         .item-del
           position: absolute
-          display: flex
-          align-items: Center
-          justify-content: Center
-          right: 0
-          top: 0
+          font-size: .3rem
+          right: .6rem
+          bottom: 1rem
           width: 1.5rem
-          height: 100%
-          color: #FFF
-          font-weight: bold
-          font-size: .4rem
-          background: #FF0000
+          color: #FF0000
+          border: 1px solid #FF0000
+          border-radius: .2rem
+          text-align: center
+          &:active
+            border: 1px solid #CCC
+            color: #CCC
       .cart-totalNum, .cart-totalPrice
         width: 100%
         margin-top: .4rem
